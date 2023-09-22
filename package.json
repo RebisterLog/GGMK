@@ -1,0 +1,15 @@
+{
+  "name": "ggmk",
+  "version": "1.0.0",
+  "description": "telegram parser for УО \"ГГМК\"'s site",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "ggmk",
+    "ггмк"
+  ],
+  "author": "RebisterLog",
+  "license": "ISC"
+}
