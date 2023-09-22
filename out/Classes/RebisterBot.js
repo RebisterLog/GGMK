@@ -11,13 +11,12 @@ class RebisterBot {
         this.bot = new TelegramAPI(token, { polling: isPolling || false });
     }
     InitCommands() {
-        this.commands.forEach((command) => {
-            command.Handle();
-        });
+        this.commands.forEach((command) => { command.Handle(); });
     }
     LaunchBot() {
         if (this.isPolling)
             return;
+        this.InitCommands();
         this.bot.startPolling();
         this.IsOnline = true;
     }

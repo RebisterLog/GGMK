@@ -6,7 +6,6 @@ export class StartCommand extends BotCommand {
             if (message.text !== "/start") return;
 
             const chatId = message.chat.id;
-            console.log(metadata);
             this.bot.sendMessage(chatId, "Приветик!");
         })
     }
