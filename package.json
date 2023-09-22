@@ -4,12 +4,18 @@
   "description": "telegram parser for УО \"ГГМК\"'s site",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "build": "npx tsc",
+    "dev": "nodemon out/index.js",
+    "start": "node out/index.js"
   },
   "keywords": [
     "ggmk",
     "ггмк"
   ],
   "author": "RebisterLog",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.63.0",
+    "typescript": "^5.2.2"
+  }
 }
