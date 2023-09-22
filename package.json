@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx tsc",
     "dev": "nodemon out/index.js",
-    "start": "node out/index.js"
+    "start": "node out/index.js",
+    "serve": "pm2 start index.js"
   },
   "keywords": [
     "ggmk",
@@ -17,5 +18,8 @@
   "dependencies": {
     "node-telegram-bot-api": "^0.63.0",
     "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node-telegram-bot-api": "^0.61.7"
   }
 }
