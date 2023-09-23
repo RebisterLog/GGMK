@@ -29,8 +29,12 @@ export class RebisterBot {
         this.bot.stopPolling();
     }
 
-    public SetCommand(command: BotCommand) {
+    public AddCommand(command: BotCommand) {
         this.commands.push(command);
+    }
+
+    public SetCommands(commands: BotCommand[]) {
+        this.commands = commands;
     }
 
     public RemoveCommand(command: BotCommand) {

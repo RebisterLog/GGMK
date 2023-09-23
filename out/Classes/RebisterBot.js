@@ -25,8 +25,11 @@ class RebisterBot {
             return;
         this.bot.stopPolling();
     }
-    SetCommand(command) {
+    AddCommand(command) {
         this.commands.push(command);
+    }
+    SetCommands(commands) {
+        this.commands = commands;
     }
     RemoveCommand(command) {
         const index = this.commands.indexOf(command);

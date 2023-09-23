@@ -4,11 +4,12 @@ exports.StartCommand = void 0;
 const BotCommand_1 = require("../Classes/BotCommand");
 class StartCommand extends BotCommand_1.BotCommand {
     Handle() {
-        this.bot.on("message", (message, metadata) => {
+        const bot = this.bot.GetBotInstance();
+        bot.on("message", (message, metadata) => {
             if (message.text !== "/start")
                 return;
             const chatId = message.chat.id;
-            this.bot.sendMessage(chatId, "Приветик!");
+            bot.sendMessage(chatId, "Приветик!");
         });
     }
 }
