@@ -1,10 +1,10 @@
 import TelegramAPI = require('node-telegram-bot-api');
-import { BotCommand } from './BotCommand';
+import { Command } from './Command';
 
 export class RebisterBot {
     public bot;
     private IsOnline = false;
-    private commands: BotCommand[] = [];
+    private commands: Command[] = [];
 
     constructor(public readonly token: string, public readonly isPolling?: boolean) {
         this.bot = new TelegramAPI(token, {polling: isPolling || false});
@@ -12,6 +12,15 @@ export class RebisterBot {
 
     private InitCommands() {
         this.commands.forEach((command) => { command.Handle(); })
+        const commandsList: TelegramAPI.BotCommand[] = [];
+
+        this.commands.forEach(Command => {
+            commandsList.push({command: Command.Command, description: Command.Description} as TelegramAPI.BotCommand)
+        });
+
+        console.log(commandsList)
+        
+        this.bot.setMyCommands(commandsList)
     }
 
     public LaunchBot() {
@@ -29,15 +38,15 @@ export class RebisterBot {
         this.bot.stopPolling();
     }
 
-    public AddCommand(command: BotCommand) {
+    public AddCommand(command: Command) {
         this.commands.push(command);
     }
 
-    public SetCommands(commands: BotCommand[]) {
+    public SetCommands(commands: Command[]) {
         this.commands = commands;
     }
 
-    public RemoveCommand(command: BotCommand) {
+    public RemoveCommand(command: Command) {
         const index = this.commands.indexOf(command);
         if (index === -1) return;
         this.commands.splice(index,1);

@@ -1,6 +1,9 @@
-import { BotCommand } from "../Classes/BotCommand";
+import { Command } from "../Classes/Command";
 
-export class StartCommand extends BotCommand {
+export class StartCommand extends Command {
+    Command = "start";
+    Description = "Приветствие";
+
     Handle(): void {
         const bot = this.bot.GetBotInstance();
         bot.on("message", (message,metadata) => {

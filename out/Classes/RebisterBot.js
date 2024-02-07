@@ -12,6 +12,12 @@ class RebisterBot {
     }
     InitCommands() {
         this.commands.forEach((command) => { command.Handle(); });
+        const commandsList = [];
+        this.commands.forEach(Command => {
+            commandsList.push({ command: Command.Command, description: Command.Description });
+        });
+        console.log(commandsList);
+        this.bot.setMyCommands(commandsList);
     }
     LaunchBot() {
         if (this.isPolling)
